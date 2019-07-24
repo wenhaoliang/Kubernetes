@@ -5,6 +5,7 @@ su root
 ```
 
 # 安装Docker kubelet kubeadm kubectl
+
 ```
 echo  "deb https://mirrors.aliyun.com/kubernetes/apt kubernetes-xenial main" >> /etc/apt/sources.list
 apt-get update && apt-get install -y docker.io apt-transport-https curl kubelet kubeadm kubectl --allow-unauthenticated
@@ -40,6 +41,7 @@ kubeadm init \
 --service-cidr=10.1.0.0/16 \
 --pod-network-cidr=10.244.0.0/16
 ```
+
 #### 这里会生成token，要记录下来，类似于
 
 ```language
