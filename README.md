@@ -1,3 +1,7 @@
+# 准备工作
+首先去官网下载**vagrant**和**VritualBox**
+
+
 # 1.进入root账户
 ```
 sudo passwd root
@@ -32,7 +36,7 @@ swapoff -a
 ufw disable
 ```
 
-1-5# 一级标题
+# 【1-5】直接部署
 **以上5步我已经写好了vagrantfile文件，大家可以直接运行**
 ```
 vagrant up
