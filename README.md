@@ -59,13 +59,13 @@ kubeadm join 192.168.8.170:6443 --token ufocob.upw1fa0fqfiuxego \
 kubeadm token create --print-join-command
 ```
 
-# 解决可能出现的connection refused情况
+# 解决master节点可能出现的connection refused情况
 ```
-master
 echo "export KUBECONFIG=/etc/kubernetes/admin.conf" >> ~/.bash_profile
 source ~/.bash_profile
 ```
-
+# 解决worker节点可能出现的connection refused情况
+首先将主节点生成的/etc/kubernetes/admin.conf文件拷贝到worker节点的/etc/kubernetes/文件夹中然后执行
 mkdir -p $HOME/.kube
 cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
 chown $(id -u):$(id -g) $HOME/.kube/config
