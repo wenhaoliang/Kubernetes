@@ -19,7 +19,7 @@ echo "192.168.8.170 master-1
 192.168.9.172 workder2
 192.168.9.173 worker-1" >> /etc/hosts
 ```
-
+这里要把IP 和
 # 关闭swap
 ```
 swapoff -a
@@ -65,11 +65,12 @@ echo "export KUBECONFIG=/etc/kubernetes/admin.conf" >> ~/.bash_profile
 source ~/.bash_profile
 ```
 # 解决worker节点可能出现的connection refused情况
-首先将主节点生成的/etc/kubernetes/admin.conf文件拷贝到worker节点的/etc/kubernetes/文件夹中然后执行
+#### 首先将master节点生成的/etc/kubernetes/admin.conf文件拷贝到worker节点的/etc/kubernetes/文件夹中然后执行以下命令
+```
 mkdir -p $HOME/.kube
 cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
 chown $(id -u):$(id -g) $HOME/.kube/config
-
+```
 
 apt-get intsall python-pip
 pip install --upgrade pip
