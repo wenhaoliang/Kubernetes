@@ -9,15 +9,16 @@ su root
 ```
 echo  "deb https://mirrors.aliyun.com/kubernetes/apt kubernetes-xenial main" >> /etc/apt/sources.list
 apt-get update && apt-get install -y docker.io apt-transport-https curl kubelet kubeadm kubectl --allow-unauthenticated
-
 ```
 
+#  设置hosts
 
-//设置hosts
+```
 echo "192.168.8.170 master-1
 192.168.9.171 worker1
 192.168.9.172 workder2
 192.168.9.173 worker-1" >> /etc/hosts
+```
 
 //关闭swap
 swapoff -a
