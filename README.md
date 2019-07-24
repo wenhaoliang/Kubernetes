@@ -4,22 +4,23 @@ sudo passwd root
 su root 
 ```
 
-
 # 安装Docker kubelet kubeadm kubectl
 ```
 echo  "deb https://mirrors.aliyun.com/kubernetes/apt kubernetes-xenial main" >> /etc/apt/sources.list
 apt-get update && apt-get install -y docker.io apt-transport-https curl kubelet kubeadm kubectl --allow-unauthenticated
 ```
 
+
 #  设置hosts
 
 ```
-echo "192.168.8.170 master-1
-192.168.9.171 worker1
-192.168.9.172 workder2
-192.168.9.173 worker-1" >> /etc/hosts
+sudo echo "192.168.8.170 master-1
+192.168.9.173 worker-1
+192.168.9.174 worker-2
+192.168.9.175 worker-3" >> /etc/hosts
 ```
-这里要把IP 和
+#### 这里要把IP和主机名字改成自己的
+
 # 关闭swap
 ```
 swapoff -a
