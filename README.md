@@ -38,13 +38,10 @@ swapoff -a
 ufw disable
 ```
 
-
-
-
 ---
 
 
-# 1.进入root账户
+# 5.在master节点进入root账户
 ```
 sudo passwd root
 su root 
