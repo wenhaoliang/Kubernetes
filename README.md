@@ -32,12 +32,12 @@ swapoff -a
 ufw disable
 ```
 
-**以上5步我已经写好了vagrantfile文件，大家可以直接运行vagrant up就可以**
-
+1-5# 一级标题
+**以上5步我已经写好了vagrantfile文件，大家可以直接运行**
 ```
-然后下载安装
-
-
+vagrant up
+```
+**就可以**
 
 
 
