@@ -49,17 +49,21 @@ kubeadm join 192.168.8.170:6443 --token ufocob.upw1fa0fqfiuxego \
 kubectl apply -f https:# raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml
 
 
-# 
+# 在worker节点使用token加入集群
+```
 kubeadm join 192.168.8.170:6443 --token ufocob.upw1fa0fqfiuxego \
     --discovery-token-ca-cert-hash sha256:52011414517c40d3079c4ac5d8296f77d80a70b7c20ddbb69ddb73a4e8f9bf9b
-
+```
 #如果执行kubeadm init时没有记录下加入集群的命令，可以通过以下命令重新创建
+```
 kubeadm token create --print-join-command
+```
 
 # 解决connection refused
+```
 echo "export KUBECONFIG=/etc/kubernetes/admin.conf" >> ~/.bash_profile
 source ~/.bash_profile
-
+```
 mkdir -p $HOME/.kube
 cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
 chown $(id -u):$(id -g) $HOME/.kube/config
