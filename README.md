@@ -59,11 +59,13 @@ kubeadm join 192.168.8.170:6443 --token ufocob.upw1fa0fqfiuxego \
 kubeadm token create --print-join-command
 ```
 
-# 解决connection refused
+# 解决可能出现的connection refused情况
 ```
+master
 echo "export KUBECONFIG=/etc/kubernetes/admin.conf" >> ~/.bash_profile
 source ~/.bash_profile
 ```
+
 mkdir -p $HOME/.kube
 cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
 chown $(id -u):$(id -g) $HOME/.kube/config
