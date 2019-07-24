@@ -3,7 +3,7 @@
 vagrant是一款用于创建和部署虚拟化开发环境的软件，而VritualBox就是虚拟机软件。
 
 # 【1-4】直接部署
-**以下4步我已经写好了vagrantfile文件，大家可以直接运行**
+**以下4步我已经写好了vagrantfile文件，大家可以下载我上传的vagrantfile和setup.sh文件，然后直接运行**
 ```
 vagrant up
 ```
