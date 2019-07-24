@@ -1,10 +1,10 @@
-# 进入root账户
+# 1.进入root账户
 ```
 sudo passwd root
 su root 
 ```
 
-# 安装Docker kubelet kubeadm kubectl
+# 2.安装Docker kubelet kubeadm kubectl
 
 ```
 echo  "deb https://mirrors.aliyun.com/kubernetes/apt kubernetes-xenial main" >> /etc/apt/sources.list
@@ -12,7 +12,7 @@ apt-get update && apt-get install -y docker.io apt-transport-https curl kubelet 
 ```
 
 
-#  设置hosts
+#  3.设置hosts
 
 ```
 sudo echo "192.168.8.170 master-1
@@ -22,17 +22,17 @@ sudo echo "192.168.8.170 master-1
 ```
 #### 这里要把IP和主机名字改成自己的
 
-# 关闭swap
+# 4.关闭swap
 ```
 swapoff -a
 ```
 
-# 关闭防火墙
+# 5.关闭防火墙
 ```
 ufw disable
 ```
 
-
+以上5步我已经写好了vagrantfile文件，大家可以修改一下我写好的vagrantfile文件中主机
 ---
 
 
