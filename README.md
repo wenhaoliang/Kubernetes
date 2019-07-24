@@ -32,7 +32,8 @@ swapoff -a
 ufw disable
 ```
 
-以上5步我已经写好了vagrantfile文件，大家可以修改一下我写好的vagrantfile文件中主机
+**以上5步我已经写好了vagrantfile文件，大家可以修改一下我写好的vagrantfile文件中主机名和IP地址就可以自动创建虚拟机。**
+
 ---
 
 
