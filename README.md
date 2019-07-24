@@ -38,12 +38,9 @@ swapoff -a
 ufw disable
 ```
 
-
 ---
 
-
-
-# 接下来我们打开登陆自己的虚拟机
+# 接下来我们打开登陆自己的虚拟机，进入master节点
 
 # 5.在master节点进入root账户
 ```
@@ -71,6 +68,7 @@ kubeadm join 192.168.8.170:6443 --token ufocob.upw1fa0fqfiuxego \
 kubectl apply -f https:# raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml
 
 
+# 然后master节点的任务完成了，
 # 8.在worker节点使用token加入集群
 ```
 kubeadm join 192.168.8.170:6443 --token ufocob.upw1fa0fqfiuxego \
