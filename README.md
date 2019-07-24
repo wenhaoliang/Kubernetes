@@ -29,9 +29,9 @@ swapoff -a
 ```
 ufw disable
 ```
-# 
+
+# 初始化init
 ```
-# init
 kubeadm init \
 --apiserver-advertise-address=192.168.8.170 \
 --image-repository registry.aliyuncs.com/google_containers \
@@ -39,9 +39,12 @@ kubeadm init \
 --service-cidr=10.1.0.0/16 \
 --pod-network-cidr=10.244.0.0/16
 ```
+这里会生成token，要记录下来
 
+# 添加flannel网络插件
 kubectl apply -f https:# raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml
 
+# 
 kubeadm join 192.168.8.170:6443 --token ufocob.upw1fa0fqfiuxego \
     --discovery-token-ca-cert-hash sha256:52011414517c40d3079c4ac5d8296f77d80a70b7c20ddbb69ddb73a4e8f9bf9b
 
