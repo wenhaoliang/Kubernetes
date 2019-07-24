@@ -1,9 +1,17 @@
+# 进入root账户
+```
 sudo passwd root
 su root 
+```
 
-# //安装Docker kubelet kubeadm kubectl
+
+# 安装Docker kubelet kubeadm kubectl
+```
 echo  "deb https://mirrors.aliyun.com/kubernetes/apt kubernetes-xenial main" >> /etc/apt/sources.list
 apt-get update && apt-get install -y docker.io apt-transport-https curl kubelet kubeadm kubectl --allow-unauthenticated
+
+```
+
 
 //设置hosts
 echo "192.168.8.170 master-1
