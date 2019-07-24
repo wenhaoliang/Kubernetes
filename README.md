@@ -39,7 +39,7 @@ ufw disable
 
 
 
-# 初始化init
+# 6.初始化init
 ```
 kubeadm init \
 --apiserver-advertise-address=192.168.8.170 \
@@ -49,17 +49,17 @@ kubeadm init \
 --pod-network-cidr=10.244.0.0/16
 ```
 
-#### 这里会生成token，要记录下来，类似于
+**这里会生成token，要记录下来，类似于**
 
 ```
 kubeadm join 192.168.8.170:6443 --token ufocob.upw1fa0fqfiuxego \
     --discovery-token-ca-cert-hash sha256:52011414517c40d3079c4ac5d8296f77d80a70b7c20ddbb69ddb73a4e8f9bf9b
 ```
-# 添加flannel网络插件
+# 7.添加flannel网络插件
 kubectl apply -f https:# raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml
 
 
-# 在worker节点使用token加入集群
+# 8.在worker节点使用token加入集群
 ```
 kubeadm join 192.168.8.170:6443 --token ufocob.upw1fa0fqfiuxego \
     --discovery-token-ca-cert-hash sha256:52011414517c40d3079c4ac5d8296f77d80a70b7c20ddbb69ddb73a4e8f9bf9b
@@ -81,7 +81,7 @@ echo "export KUBECONFIG=/etc/kubernetes/admin.conf" >> ~/.bash_profile
 source ~/.bash_profile
 ```
 # 解决worker节点可能出现的connection refused情况
-#### 首先将master节点生成的/etc/kubernetes/admin.conf文件拷贝到worker节点的/etc/kubernetes/文件夹中然后执行以下命令
+**首先将master节点生成的/etc/kubernetes/admin.conf文件拷贝到worker节点的/etc/kubernetes/文件夹中然后执行以下命令**
 ```
 mkdir -p $HOME/.kube
 cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
