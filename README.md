@@ -20,7 +20,7 @@ sudo echo "192.168.8.170 master-1
 192.168.9.174 worker-2
 192.168.9.175 worker-3" >> /etc/hosts
 ```
-#### 这里要把IP和主机名字改成自己的
+**这里要把IP和主机名字改成自己的**
 
 # 4.关闭swap
 ```
@@ -33,6 +33,23 @@ ufw disable
 ```
 
 **以上5步我已经写好了vagrantfile文件，大家可以修改一下我写好的vagrantfile文件中主机名和IP地址就可以自动创建虚拟机。**
+
+```vagrantfile
+boxes = [
+    {
+        :name => "master-1",
+        :eth1 => "192.168.8.170",
+        :mem => "2048",
+        :cpu => "2"
+    }
+]
+
+```
+
+
+
+
+
 
 ---
 
