@@ -65,11 +65,12 @@ kubeadm join 192.168.8.170:6443 --token ufocob.upw1fa0fqfiuxego \
     --discovery-token-ca-cert-hash sha256:52011414517c40d3079c4ac5d8296f77d80a70b7c20ddbb69ddb73a4e8f9bf9b
 ```
 # 7.添加flannel网络插件
+```
 kubectl apply -f https:# raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml
-
+```
 
 # 然后master节点的任务完成了，我们打开三台worker节点，并进入root账户
-8.在worker节点使用token加入集群
+##  8.在worker节点使用token加入集群
 ```
 kubeadm join 192.168.8.170:6443 --token ufocob.upw1fa0fqfiuxego \
     --discovery-token-ca-cert-hash sha256:52011414517c40d3079c4ac5d8296f77d80a70b7c20ddbb69ddb73a4e8f9bf9b
