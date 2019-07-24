@@ -66,7 +66,7 @@ kubeadm join 192.168.8.170:6443 --token ufocob.upw1fa0fqfiuxego \
 ```
 # 7.添加flannel网络插件
 ```
-kubectl apply -f https:# raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml
+kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml
 ```
 
 # 然后master节点的任务完成了，我们打开三台worker节点，并进入root账户
