@@ -2,18 +2,14 @@
 首先去官网下载**vagrant**和**VritualBox**，
 vagrant是一款用于创建和部署虚拟化开发环境的软件，而VritualBox就是虚拟机软件。
 
-# 【1-5】直接部署
-**以下5步我已经写好了vagrantfile文件，大家可以直接运行**
+# 【1-3】直接部署
+**以下3步我已经写好了vagrantfile文件，大家可以直接运行**
 ```
 vagrant up
 ```
-**就可以自动化的生成对应的**
+**就可以自动化的生成对应的一台master节点和三台worker**
 
-# 1.进入root账户
-```
-sudo passwd root
-su root 
-```
+
 
 # 2.安装Docker kubelet kubeadm kubectl
 
@@ -49,7 +45,11 @@ ufw disable
 ---
 
 
-
+# 1.进入root账户
+```
+sudo passwd root
+su root 
+```
 
 # 6.初始化init
 ```
