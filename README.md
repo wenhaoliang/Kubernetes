@@ -1,5 +1,7 @@
 # 准备工作
-首先去官网下载**vagrant**和**VritualBox**
+首先去官网下载**vagrant**和**VritualBox**，
+vagrant是一款用于创建和部署虚拟化开发环境的软件，而VritualBox就是创建虚拟机
+
 
 
 # 1.进入root账户
