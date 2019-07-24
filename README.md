@@ -35,7 +35,7 @@ ufw disable
 **以上5步我已经写好了vagrantfile文件，大家可以修改一下我写好的vagrantfile文件中主机名和IP地址就可以自动创建虚拟机。**
 
 
-在vagrantfile中修改自己的IP和主机名：
+**在vagrantfile中修改自己的IP和主机名：**
 ```vagrantfile*
 boxes = [
     {
@@ -47,7 +47,7 @@ boxes = [
 ]
 
 ```
-
+然后下载安装
 
 
 
