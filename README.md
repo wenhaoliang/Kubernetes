@@ -80,23 +80,3 @@ kubeadm join 192.168.8.170:6443 --token ufocob.upw1fa0fqfiuxego \
 ---
 
 
-
-#如果执行kubeadm init时没有记录下加入集群的命令，可以通过以下命令重新创建
-```
-kubeadm token create --print-join-command
-```
-
-# 解决master节点可能出现的connection refused情况
-```
-echo "export KUBECONFIG=/etc/kubernetes/admin.conf" >> ~/.bash_profile
-source ~/.bash_profile
-```
-# 解决worker节点可能出现的connection refused情况
-**首先将master节点生成的/etc/kubernetes/admin.conf文件拷贝到worker节点的/etc/kubernetes/文件夹中然后执行以下命令**
-```
-mkdir -p $HOME/.kube
-cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
-chown $(id -u):$(id -g) $HOME/.kube/config
-```
-
-
