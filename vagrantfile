@@ -5,26 +5,26 @@ Vagrant.require_version ">= 1.6.0"
 
 boxes = [
     {
-        :name => "master-1",
+        :name => "master1",
         :eth1 => "192.168.8.170",
         :mem => "2048",
         :cpu => "2"
     },
 	{
-        :name => "worker-1",
-        :eth1 => "192.168.9.173",
+        :name => "worker1",
+        :eth1 => "192.168.8.171",
         :mem => "2048",
         :cpu => "2"
     },
 	{
-        :name => "worker-2",
-        :eth1 => "192.168.9.174",
+        :name => "worker2",
+        :eth1 => "192.168.8.172",
         :mem => "2048",
         :cpu => "2"
     },
 	{
-        :name => "worker-3",
-        :eth1 => "192.168.9.175",
+        :name => "worker3",
+        :eth1 => "192.168.8.173",
         :mem => "2048",
         :cpu => "2"
     }
