@@ -21,10 +21,10 @@ apt-get update && apt-get install -y docker.io apt-transport-https curl kubelet 
 #  2.设置hosts
 
 ```
-sudo echo "192.168.8.170 master-1
-192.168.9.173 worker-1
-192.168.9.174 worker-2
-192.168.9.175 worker-3" >> /etc/hosts
+echo "192.168.8.170 master1
+192.168.8.171 worker1
+192.168.8.172 worker2
+192.168.8.173 worker3" >> /etc/hosts
 ```
 **这里要把IP和主机名字改成自己的**
 
