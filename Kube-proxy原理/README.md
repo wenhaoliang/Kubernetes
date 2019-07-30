@@ -14,7 +14,7 @@ Kubernetes 在每个节点上运行网络代理。这反映每个节点上 Kuber
 - Service 一个重要作用就是，一个服务后端的 Pods 可能会随着生存灭亡而发生 IP 的改变，Service 的出现，给服务提供了一个固定的 IP，而无视后端 Endpoint 的变化，而这种关联的维护主要依赖 kube-proxy 实现；
 
 # 二、kube-proxy 内部原理
-**kube-proxy 当前实现了三种代理模式：~~userspace、ipvs~~以及iptables，但是最新的实现方式是iptables方式，也是kube默认的方式。**
+**kube-proxy 当前实现了三种代理模式：~~userspace、iptables~~以及ipvs，但是最新的实现方式是ipvs方式，也是kube默认的方式。**
 
 ---
 ## 1、  userspace 模式
@@ -50,3 +50,5 @@ kube-proxy 持续监听 Service 以及 Endpoints 对象的变化；
 # 三、ipvs 内部原理
 **kube-proxy引入了IPVS，IPVS与iptables基于Netfilter，但IPVS采用的hash表，因此当service数量规模特别大时，hash查表的速度优势就会突显，而提高查找service性能。**
 
+ipvs ： 工作于内核空间，主要用于使用户定义的策略生效；
+ipvsadm : 工作于用户空间，主要用于用户定义和管理集群服务的工具；
