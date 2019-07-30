@@ -24,11 +24,17 @@ kube-proxy 同时会在本地节点设置 iptables 规则，配置一个 Virtual
 把发往 Virtual IP 的请求重定向到与该 Virtual IP 对应的服务代理端口上。
 其工作流程大体如下：
 ![userspace.png](3)
+分析：该模式请求在到达 iptables 进行处理时就会进入内核，而 kube-proxy 监听则是在用户态，请求就形成了从用户态到内核态再返回到用户态的传递过程，一定程度降低了服务性能。
 
+---
+2、iptables模式
 kube-proxy 持续监听 Service 以及 Endpoints 对象的变化；
 但它并不在本地节点开启反向代理服务，而是把反向代理全部交给 iptables 来实现；即 iptables 直接将对 VIP 的请求转发给后端 Pod，通过 iptables 设置转发策略。
 其工作流程大体如下：
 ![iptables.png](2)
+分析：该模式相比 userspace 模式，克服了请求在用户态-内核态反复传递的问题，性能上有所提升， 但使用 iptables NAT 来完成转发，存在不可忽视的性能损耗，而且在大规模场景下，iptables 规则的条目会十分巨大，性能上还要再打折扣。
 
+---
+---
 
 
