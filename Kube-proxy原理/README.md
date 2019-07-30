@@ -81,3 +81,5 @@ Client IP:客户端请求源IP，简称CIP。
 Director Virtual IP:调度器用于与客户端通信的IP地址，简称为VIP。
 
 Real Server IP: 后端主机的用于与调度器通信的IP地址，简称为RIP。
+
+![ipvs3.png](4)
