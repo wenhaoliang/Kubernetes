@@ -69,25 +69,15 @@ Kube-proxy 是服务路由的构建块，它依赖于经过强化攻击的 iptab
 # 三、ipvs原理
 
 **ipvs的模型中有两个角色：**
+
 调度器:Director，又称为Balancer。 调度器主要用于接受用户请求。
 
 真实主机:Real Server，简称为RS。用于真正处理用户的请求。
-**
-IP地址类型分为三种：**
+
+**IP地址类型分为三种：**
+
 Client IP:客户端请求源IP，简称CIP。
 
 Director Virtual IP:调度器用于与客户端通信的IP地址，简称为VIP。
 
 Real Server IP: 后端主机的用于与调度器通信的IP地址，简称为RIP。
---------------------- 
-作者：田园园野 
-来源：CSDN 
-原文：https://blog.csdn.net/qq_36183935/article/details/90734936 
-版权声明：本文为博主原创文章，转载请附上博文链接！
-**kube-proxy引入了IPVS，IPVS与iptables基于Netfilter，但IPVS采用的hash表，因此当service数量规模特别大时，hash查表的速度优势就会突显，而提高查找service性能。**
-
-ipvs ： 工作于内核空间，主要用于使用户定义的策略生效；
-ipvsadm : 工作于用户空间，主要用于用户定义和管理集群服务的工具；
-![ipvs1.png](images/ipvs1.png)
-
-![ipvs2.png](images/ipvs2.png)
