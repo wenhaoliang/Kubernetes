@@ -16,6 +16,14 @@ Kubernetes 在每个节点上运行网络代理。这反映每个节点上 Kuber
 **kube-proxy 当前实现了三种代理模式：~~userspace、ipvs~~以及iptables，但是最新的实现方式是iptables方式，也是kube默认的方式。**
 
 ---
+1、  userspace 模式
+在这种模式下，kube-proxy 持续监听 Service 以及 Endpoints 对象的变化；
+对每个 Service，它都为其在本地节点开放一个端口，作为其服务代理端口；
+发往该端口的请求会采用一定的策略转发给与该服务对应的后端 Pod 实体。
+kube-proxy 同时会在本地节点设置 iptables 规则，配置一个 Virtual IP，
+把发往 Virtual IP 的请求重定向到与该 Virtual IP 对应的服务代理端口上。
+其工作流程大体如下：
+
 kube-proxy 持续监听 Service 以及 Endpoints 对象的变化；
 但它并不在本地节点开启反向代理服务，而是把反向代理全部交给 iptables 来实现；即 iptables 直接将对 VIP 的请求转发给后端 Pod，通过 iptables 设置转发策略。
 其工作流程大体如下：
