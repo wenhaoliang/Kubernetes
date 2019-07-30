@@ -10,5 +10,19 @@
 二、kube-proxy 内部原理
 kube-proxy 当前实现了三种代理模式：~~userspace、ipvs~~以及iptables，但是最新的实现方式是iptables方式，也是kube默认的方式。
 ***
+```flow
+st=>start: 开始
+op=>operation: My Operation
+cond=>condition: Yes or No?
+e=>end
+st->op->cond
+cond(yes)->e
+cond(no)->op
+&
+```
+。。。。
+。。。。
+。。。
+
 
 
