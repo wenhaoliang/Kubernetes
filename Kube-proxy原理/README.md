@@ -25,7 +25,7 @@ Kubernetes 在每个节点上运行网络代理。这反映每个节点上 Kuber
 kube-proxy 同时会在本地节点设置 iptables 规则，配置一个 Virtual IP，
 把发往 Virtual IP 的请求重定向到与该 Virtual IP 对应的服务代理端口上。
 其工作流程大体如下：
-![Userspace.png](images/Userspace.png)
+![userspace.png](images/userspace.png)
 
 分析：该模式请求在到达 iptables 进行处理时就会进入内核，而 kube-proxy 监听则是在用户态，请求就形成了从用户态到内核态再返回到用户态的传递过程，一定程度降低了服务性能。
 
