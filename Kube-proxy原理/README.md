@@ -8,7 +8,7 @@
 - Service 一个重要作用就是，一个服务后端的 Pods 可能会随着生存灭亡而发生 IP 的改变，Service 的出现，给服务提供了一个固定的 IP，而无视后端 Endpoint 的变化，而这种关联的维护主要依赖 kube-proxy 实现；
 
 二、kube-proxy 内部原理
-kube-proxy 当前实现了三种代理模式：**userspace、iptables** 以及 **ipvs**。
+kube-proxy 当前实现了三种代理模式：**userspace、iptables** 以及 **ipvs**，但是最新的实现方式是iptables方式，也是kube默认的方式
 2.1 userspace 模式
 
 
