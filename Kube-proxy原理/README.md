@@ -65,7 +65,25 @@ Kube-proxy 是服务路由的构建块，它依赖于经过强化攻击的 iptab
 尽管 Kubernetes 在版本v1.6中已经支持5000个节点，但使用 iptables 的 kube-proxy 实际上是将集群扩展到5000个节点的瓶颈。 一个例子是，在5000节点集群中使用 NodePort 服务，如果我们有2000个服务并且每个服务有10个 pod，这将在每个工作节点上至少产生20000个 iptable 记录，这可能使内核非常繁忙。
 
 另一方面，使用基于 IPVS 的集群内服务负载均衡可以为这种情况提供很多帮助。 IPVS 专门用于负载均衡，并使用更高效的数据结构（哈希表），允许几乎无限的规模扩张。
-# 三、ipvs
+
+# 三、ipvs原理
+
+**ipvs的模型中有两个角色：**
+调度器:Director，又称为Balancer。 调度器主要用于接受用户请求。
+
+真实主机:Real Server，简称为RS。用于真正处理用户的请求。
+**
+IP地址类型分为三种：**
+Client IP:客户端请求源IP，简称CIP。
+
+Director Virtual IP:调度器用于与客户端通信的IP地址，简称为VIP。
+
+Real Server IP: 后端主机的用于与调度器通信的IP地址，简称为RIP。
+--------------------- 
+作者：田园园野 
+来源：CSDN 
+原文：https://blog.csdn.net/qq_36183935/article/details/90734936 
+版权声明：本文为博主原创文章，转载请附上博文链接！
 **kube-proxy引入了IPVS，IPVS与iptables基于Netfilter，但IPVS采用的hash表，因此当service数量规模特别大时，hash查表的速度优势就会突显，而提高查找service性能。**
 
 ipvs ： 工作于内核空间，主要用于使用户定义的策略生效；
