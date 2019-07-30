@@ -1,4 +1,9 @@
+::: hljs-center
+
 # kube-proxy 工作原理
+
+:::
+
 
 # 概念
 
