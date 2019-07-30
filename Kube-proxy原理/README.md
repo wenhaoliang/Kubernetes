@@ -52,4 +52,4 @@ kube-proxy 持续监听 Service 以及 Endpoints 对象的变化；
 
 ipvs ： 工作于内核空间，主要用于使用户定义的策略生效；
 ipvsadm : 工作于用户空间，主要用于用户定义和管理集群服务的工具；
-![ipvs1.png](images/ipvs1.png)
+![ipvs1.png](2)
