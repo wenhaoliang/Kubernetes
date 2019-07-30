@@ -35,7 +35,7 @@ kube-proxy 同时会在本地节点设置 iptables 规则，配置一个 Virtual
 kube-proxy 持续监听 Service 以及 Endpoints 对象的变化；
 但它并不在本地节点开启反向代理服务，而是把反向代理全部交给 iptables 来实现；即 iptables 直接将对 VIP 的请求转发给后端 Pod，通过 iptables 设置转发策略。
 其工作流程大体如下：
-
+![iptables.png](images/iptables.png)
 
 分析：该模式相比 userspace 模式，克服了请求在用户态-内核态反复传递的问题，性能上有所提升，但使用 iptables NAT 来完成转发，存在不可忽视的性能损耗，而且在大规模场景下，iptables 规则的条目会十分巨大，性能上还要再打折扣。
 
