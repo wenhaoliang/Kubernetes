@@ -23,6 +23,7 @@ Kubernetes 在每个节点上运行网络代理。这反映每个节点上 Kuber
 kube-proxy 同时会在本地节点设置 iptables 规则，配置一个 Virtual IP，
 把发往 Virtual IP 的请求重定向到与该 Virtual IP 对应的服务代理端口上。
 其工作流程大体如下：
+![userspace.png](3)
 
 kube-proxy 持续监听 Service 以及 Endpoints 对象的变化；
 但它并不在本地节点开启反向代理服务，而是把反向代理全部交给 iptables 来实现；即 iptables 直接将对 VIP 的请求转发给后端 Pod，通过 iptables 设置转发策略。
