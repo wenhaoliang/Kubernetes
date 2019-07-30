@@ -14,7 +14,7 @@
 kube-proxy 持续监听 Service 以及 Endpoints 对象的变化；
 但它并不在本地节点开启反向代理服务，而是把反向代理全部交给 iptables 来实现；即 iptables 直接将对 VIP 的请求转发给后端 Pod，通过 iptables 设置转发策略。
 其工作流程大体如下：
-
+![iptables.png](2)
 
 
 
