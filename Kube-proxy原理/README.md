@@ -9,6 +9,14 @@
 
 二、kube-proxy 内部原理
 kube-proxy 当前实现了三种代理模式：~~userspace、ipvs~~以及iptables，但是最新的实现方式是iptables方式，也是kube默认的方式。
+---
+kube-proxy 持续监听 Service 以及 Endpoints 对象的变化；
+
+       但它并不在本地节点开启反向代理服务，而是把反向代理全部交给 iptables 来实现；
+
+       即 iptables 直接将对 VIP 的请求转发给后端 Pod，通过 iptables 设置转发策略。
+
+       其工作流程大体如下：
 
 
 
