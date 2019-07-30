@@ -69,4 +69,5 @@ Kube-proxy 是服务路由的构建块，它依赖于经过强化攻击的 iptab
 ipvs ： 工作于内核空间，主要用于使用户定义的策略生效；
 ipvsadm : 工作于用户空间，主要用于用户定义和管理集群服务的工具；
 ![ipvs1.png](images/ipvs1.png)
-![ipvs2.jpg](images/3)
+
+![ipvs2.png](images/ipvs2.png)
