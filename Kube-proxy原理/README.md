@@ -49,13 +49,15 @@ kube-proxy 持续监听 Service 以及 Endpoints 对象的变化；
 
 分析：ipvs 是目前 kube-proxy 所支持的最新代理模式，相比使用 iptables，使用 ipvs 具有更高的性能。
 
-# 三、ipvs 内部原理
+# 三、ipvs
 **什么是 IPVS ?**
+
 IPVS (IP Virtual Server)是在 Netfilter 上层构建的，并作为 Linux 内核的一部分，实现传输层负载均衡。
 
 IPVS 集成在 LVS（Linux Virtual Server，Linux 虚拟服务器）中，它在主机上运行，并在物理服务器集群前作为负载均衡器。IPVS 可以将基于 TCP 和 UDP 服务的请求定向到真实服务器，并使真实服务器的服务在单个IP地址上显示为虚拟服务。 因此，IPVS 自然支持 Kubernetes 服务。
 
 **为什么为 Kubernetes 选择 IPVS ?**
+
 随着 Kubernetes 的使用增长，其资源的可扩展性变得越来越重要。特别是，服务的可扩展性对于运行大型工作负载的开发人员/公司采用 Kubernetes 至关重要。
 
 Kube-proxy 是服务路由的构建块，它依赖于经过强化攻击的 iptables 来实现支持核心的服务类型，如 ClusterIP 和 NodePort。 但是，iptables 难以扩展到成千上万的服务，因为它纯粹是为防火墙而设计的，并且基于内核规则列表。
@@ -63,7 +65,7 @@ Kube-proxy 是服务路由的构建块，它依赖于经过强化攻击的 iptab
 尽管 Kubernetes 在版本v1.6中已经支持5000个节点，但使用 iptables 的 kube-proxy 实际上是将集群扩展到5000个节点的瓶颈。 一个例子是，在5000节点集群中使用 NodePort 服务，如果我们有2000个服务并且每个服务有10个 pod，这将在每个工作节点上至少产生20000个 iptable 记录，这可能使内核非常繁忙。
 
 另一方面，使用基于 IPVS 的集群内服务负载均衡可以为这种情况提供很多帮助。 IPVS 专门用于负载均衡，并使用更高效的数据结构（哈希表），允许几乎无限的规模扩张。
-
+# 三、ipvs
 **kube-proxy引入了IPVS，IPVS与iptables基于Netfilter，但IPVS采用的hash表，因此当service数量规模特别大时，hash查表的速度优势就会突显，而提高查找service性能。**
 
 ipvs ： 工作于内核空间，主要用于使用户定义的策略生效；
